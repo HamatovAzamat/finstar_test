@@ -1,8 +1,7 @@
+import 'package:finstar_test/bindings/home_bindind.dart';
 import 'package:finstar_test/core/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'presentation/home_page.dart';
 
 class Application extends StatelessWidget {
   const Application({Key? key}) : super(key: key);
@@ -10,10 +9,15 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: HomePage(),
+      initialBinding: HomeBinding(),
+      initialRoute: AppRoutes.home,
       getPages: AppRouter.pages,
       theme: ThemeData(
+        primarySwatch: Colors.blue,
         useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          color: Colors.purple,
+        )
       ),
     );
   }

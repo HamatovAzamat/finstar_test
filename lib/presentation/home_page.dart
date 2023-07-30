@@ -1,6 +1,12 @@
-import 'package:finstar_test/core/app_router.dart';
+import 'package:finstar_test/controllers/annuity_credit_controller.dart';
+import 'package:finstar_test/controllers/differentiated_credit_controller.dart';
+import 'package:finstar_test/helpers/loan_type_helper.dart';
+import 'package:finstar_test/presentation/widgets/interest_rate_slider.dart';
+import 'package:finstar_test/presentation/widgets/loan_amount_widget.dart';
+import 'package:finstar_test/presentation/widgets/loan_term_widget.dart';
+import 'package:finstar_test/presentation/widgets/loan_type_widget.dart';
+import 'package:finstar_test/presentation/widgets/results_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,19 +14,29 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      appBar: AppBar(
+        title: const Text(
+          'Расчет значений',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
+            const SizedBox(height: 10),
+            const LoanTypeWidget(),
+            const SizedBox(height: 10),
+            const LoanAmountWidget(),
+            const SizedBox(height: 10),
+            const LoanTermWidget(),
+            const InterestRateSlider(),
             ElevatedButton(
-              child: Text('аннуитетный'),
-              onPressed: () => Get.toNamed(AppRoutes.annuity),
+              onPressed: () => (loanType.value == LoanTypes.annuity)
+                  ? AnnuityCreditController.to.calc()
+                  : DifferentiatedCreditController.to.calc(),
+              child: Text('Расчитать'),
             ),
-            const SizedBox(height: 20,),
-            ElevatedButton(
-              child: Text('дифферинцированный'),
-              onPressed: () => Navigator.of(context).pushNamed(AppRoutes.diff),
-            ),
+            const ResultsWidget(),
           ],
         ),
       ),

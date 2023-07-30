@@ -1,4 +1,4 @@
-import 'package:finstar_test/presentation/annuity_page.dart';
+import 'package:finstar_test/bindings/home_bindind.dart';
 import 'package:finstar_test/presentation/home_page.dart';
 import 'package:get/get.dart';
 
@@ -14,14 +14,11 @@ class AppRouter {
     GetPage(
       name: AppRoutes.home,
       page: () => const HomePage(),
+      binding: HomeBinding(),
     ),
     GetPage(
       name: AppRoutes.diff,
       page: () => const HomePage(),
-    ),
-    GetPage(
-      name: AppRoutes.annuity,
-      page: () => const AnnuityPage(),
     ),
   ];
 }
