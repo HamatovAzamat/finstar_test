@@ -12,7 +12,7 @@ class LoanTermWidget extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(left: 10),
-          child: Text('Срок кредита'),
+          child: Text('Срок кредита (мес.)'),
         ),
         Expanded(
           //flex: 1,

@@ -11,14 +11,14 @@ class ResultsWidget extends StatelessWidget {
       () => Column(
         children: [
           ListTile(
-            title: Text('Общая сумма: ${totalPaymentResult.value.round()}'),
+            title: Text('Общая сумма: ${totalPaymentResult.value.toStringAsFixed(2)}'),
           ),
           ListTile(
             title: Text(
-                'Ежемесячный платеж: ${monthlyPaymentResult.value.round()}'),
+                'Ежемесячный платеж: ${monthlyPaymentResult.value.toStringAsFixed(2)}'),
           ),
           ListTile(
-            title: Text('Переплата: ${overpayResult.value.round()}'),
+            title: Text('Переплата: ${overpayResult.value.toStringAsFixed(2)}'),
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:finstar_test/helpers/handle_errors_helper.dart';
 import 'package:finstar_test/helpers/interest_rate_helper.dart';
 import 'package:finstar_test/helpers/result_values_helper.dart';
 import 'package:finstar_test/helpers/text_edditing_helper.dart';
@@ -10,7 +11,7 @@ class AnnuityCreditController extends GetxController {
 
   void calc() {
     print('AnnuityCreditController calc');
-    //TODO: checkErrors();
+    if (hasErrors) return;
     var amount = double.parse(loanAmountController.text);
     var months = double.parse(loanTermController.text);
     var interest = interestRate.value.toDouble() / 12 / 100;
@@ -21,4 +22,8 @@ class AnnuityCreditController extends GetxController {
     totalPaymentResult.value = monthlyPaymentResult.value * months;
     overpayResult.value = totalPaymentResult.value - amount;
   }
+
+
+
+
 }
