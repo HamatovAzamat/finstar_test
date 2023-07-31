@@ -10,14 +10,12 @@ class AnnuityCreditController extends GetxController {
   static AnnuityCreditController get to => Get.find<AnnuityCreditController>();
 
   void calc() {
-    print('AnnuityCreditController calc');
     if (hasErrors) return;
     var amount = double.parse(loanAmountController.text);
     var months = double.parse(loanTermController.text);
     var interest = interestRate.value.toDouble() / 12 / 100;
     var k = (interest * pow((1 + interest), months)) /
         (pow((1 + interest), months) - 1);
-    print(k);
     monthlyPaymentResult.value = k * amount;
     totalPaymentResult.value = monthlyPaymentResult.value * months;
     overpayResult.value = totalPaymentResult.value - amount;

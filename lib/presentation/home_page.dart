@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
               onPressed: () => (loanType.value == LoanTypes.annuity)
                   ? AnnuityCreditController.to.calc()
                   : DifferentiatedCreditController.to.calc(),
-              child: Text('Расчитать'),
+              child: const Text('Расчитать'),
             ),
             const ResultsWidget(),
           ],

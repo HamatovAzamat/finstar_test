@@ -9,7 +9,6 @@ class DifferentiatedCreditController extends GetxController{
   static DifferentiatedCreditController get to => Get.find<DifferentiatedCreditController>();
 
   void calc(){
-    print('DifferentiatedCreditController calc');
     if (hasErrors) return;
     var amount = double.parse(loanAmountController.text);
     var months = double.parse(loanTermController.text);

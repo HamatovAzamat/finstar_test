@@ -10,7 +10,7 @@ class LoanTermWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 10),
           child: Text('Срок кредита (мес.)'),
         ),
@@ -26,11 +26,11 @@ class LoanTermWidget extends StatelessWidget {
               color: Colors.grey[200],
               borderRadius: BorderRadius.circular(10),
             ),
-            margin: EdgeInsets.symmetric(horizontal: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
               controller: loanTermController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   hintText: 'Введите срок кредита',
                   focusedBorder: InputBorder.none,
                   border: InputBorder.none,
